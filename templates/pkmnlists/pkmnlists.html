@@ -1,0 +1,19 @@
+<table>
+
+    {% if pkmnlists %}
+    {% for pkmnlist in pkmnlists %}
+    <tr>
+        <th> {{pkmnlist.pokedex_number}}</th>
+        <th> {{pkmnlist.name}}</th>
+        <th> {{pkmnlist.type_1}}</th>
+        <th> {{pkmnlist.type_2}}</th>
+        <th> {{pkmnlist.generation}}</th>
+
+    </tr>
+    {% endfor %}
+    {% endif %}
+</table>
+
+
+
+
