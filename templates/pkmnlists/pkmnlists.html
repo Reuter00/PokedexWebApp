@@ -1,18 +1,54 @@
-<table>
+{% load static %}
 
-    {% if pkmnlists %}
-    {% for pkmnlist in pkmnlists %}
-    <tr>
-        <th> {{pkmnlist.pokedex_number}}</th>
-        <th> {{pkmnlist.name}}</th>
-        <th> {{pkmnlist.type_1}}</th>
-        <th> {{pkmnlist.type_2}}</th>
-        <th> {{pkmnlist.generation}}</th>
 
-    </tr>
-    {% endfor %}
-    {% endif %}
-</table>
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+
+<div class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100">
+                <table>
+                    <thead>
+                    <tr class="table100-head">
+                        <th class="column1">Pokedex</th>
+                        <th class="column2">Name</th>
+                        <th class="column3">Type</th>
+                        <th class="column4">Total</th>
+                        <th class="column5">Hp</th>
+                        <th class="column4">Atk</th>
+                        <th class="column5">Def</th>
+                        <th class="column5">SP Atk</th>
+                        <th class="column4">SP Def</th>
+                        <th class="column5">Speed</th>
+                        <th class="column6">Gen</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if pkmnlists %}
+                    {% for pkmnlist in pkmnlists %}
+                    <tr>
+                        <td class="column1">{{pkmnlist.pokedex_number}}</td>
+                        <td class="column2">{{pkmnlist.name}}</td>
+                        <td class="column3">{{pkmnlist.type_1}} / {{pkmnlist.type_2}}</td>
+                        <td class="column4">{{pkmnlist.total_points}}</td>
+                        <td class="column5">{{pkmnlist.hp}}</td>
+                        <td class="column5">{{pkmnlist.attack}}</td>
+                        <td class="column5">{{pkmnlist.defense}}</td>
+                        <td class="column5">{{pkmnlist.sp_attack}}</td>
+                        <td class="column5">{{pkmnlist.sp_defense}}</td>
+                        <td class="column5">{{pkmnlist.speed}}</td>
+                        <td class="column6">{{pkmnlist.generation}}</td>
+
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
