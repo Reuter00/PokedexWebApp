@@ -1,55 +1,49 @@
+{% extends 'base.html' %}
 {% load static %}
 
 
-<link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% block content %}
+<table class="table table-hover" style="align-content: center">
+    <thead class="table-light">
+    <tr>
+        <th scope="col">Pokedex</th>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Total</th>
+        <th scope="col">Hp</th>
+        <th scope="col">Atk</th>
+        <th scope="col">Def</th>
+        <th scope="col">SP Atk</th>
+        <th scope="col">SP Def</th>
+        <th scope="col">Speed</th>
+        <th scope="col">Gen</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if pkmnlists %}
+    {% for pkmnlist in pkmnlists %}
+    <tr>
+        <td>{{pkmnlist.pokedex_number}}</td>
+        <td><a href="{% url 'pkmnpage' pkmnlist.id %}"
+               class="btn ">{{pkmnlist.name}}</a></td>
+        <td>{{pkmnlist.type_1}} / {{pkmnlist.type_2}}</td>
+        <td>{{pkmnlist.total_points}}</td>
+        <td>{{pkmnlist.hp}}</td>
+        <td>{{pkmnlist.attack}}</td>
+        <td>{{pkmnlist.defense}}</td>
+        <td>{{pkmnlist.sp_attack}}</td>
+        <td>{{pkmnlist.sp_defense}}</td>
+        <td>{{pkmnlist.speed}}</td>
+        <td>{{pkmnlist.generation}}</td>
 
-
-<div class="limiter">
-    <div class="container-table100">
-        <div class="wrap-table100">
-            <div class="table100">
-                <table>
-                    <thead>
-                    <tr class="table100-head">
-                        <th class="column1">Pokedex</th>
-                        <th class="column2">Name</th>
-                        <th class="column3">Type</th>
-                        <th class="column4">Total</th>
-                        <th class="column5">Hp</th>
-                        <th class="column4">Atk</th>
-                        <th class="column5">Def</th>
-                        <th class="column5">SP Atk</th>
-                        <th class="column4">SP Def</th>
-                        <th class="column5">Speed</th>
-                        <th class="column6">Gen</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% if pkmnlists %}
-                    {% for pkmnlist in pkmnlists %}
-                    <tr>
-                        <td class="column1">{{pkmnlist.pokedex_number}}</td>
-                        <td class="column2"><a href="{% url 'pkmnpage' pkmnlist.id %}" class="btn btn-primary btn-block">{{pkmnlist.name}}</a></td>
-                        <td class="column3">{{pkmnlist.type_1}} / {{pkmnlist.type_2}}</td>
-                        <td class="column4">{{pkmnlist.total_points}}</td>
-                        <td class="column5">{{pkmnlist.hp}}</td>
-                        <td class="column5">{{pkmnlist.attack}}</td>
-                        <td class="column5">{{pkmnlist.defense}}</td>
-                        <td class="column5">{{pkmnlist.sp_attack}}</td>
-                        <td class="column5">{{pkmnlist.sp_defense}}</td>
-                        <td class="column5">{{pkmnlist.speed}}</td>
-                        <td class="column6">{{pkmnlist.generation}}</td>
-
-                    </tr>
-                    {% endfor %}
-                    {% endif %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+    </tr>
+    {% endfor %}
+    {% endif %}
+    </tbody>
+</table>
 </div>
-
-
-
+</div>
+</div>
+</div>
+{% endblock %}
 

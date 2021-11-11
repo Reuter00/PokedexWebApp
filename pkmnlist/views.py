@@ -1,6 +1,6 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
-
+from pkmnlist.dictionarys import generation
 from .models import pkmnlist
 
 
@@ -12,7 +12,8 @@ def index(request):
     # paged_listings = paginator.get_page(page)
 
     context = {
-        'pkmnlists': pkmnlists
+        'pkmnlists': pkmnlists,
+        'generation': generation
     }
 
     return render(request, 'pkmnlists/pkmnlists.html', context)

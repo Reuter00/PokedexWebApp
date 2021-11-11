@@ -1,12 +1,14 @@
+{% extends 'base.html' %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/main.css' %}">
 
 
+
+{% block content %}
 <div class="limiter">
     <div class="container-table100">
         <div class="wrap-table100">
             <div class="table100">
-                <table>
+                <table class="table table-hover">
                     <thead>
                     <tr class="table100-head">
                         <th class="column1">Pokedex</th>
@@ -45,3 +47,4 @@
         </div>
     </div>
 </div>
+{% endblock %}
