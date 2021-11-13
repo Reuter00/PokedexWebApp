@@ -31,4 +31,16 @@ def pkmnlists(request, pkmnlist_id):
 
 
 def search(request):
-    return render(request, 'pkmnlists/search.html')
+    queryset_list = pkmnlist.objects.order_by('pokedex_number')
+
+    # URL Keywords
+    if 'pkmnname' in request.GET:
+        pkmnsearchedname = request.GET['pkmnname']
+    if pkmnsearchedname:
+        queryset_list = queryset_list.filter(name__icontains=pkmnsearchedname)
+
+    context = {
+        'pkmnlists': queryset_list
+
+    }
+    return render(request, 'pkmnlists/search.html', context)

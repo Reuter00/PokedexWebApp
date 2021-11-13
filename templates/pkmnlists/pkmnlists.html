@@ -3,44 +3,22 @@
 
 
 {% block content %}
-<table class="table table-hover" style="align-content: center">
-    <thead class="table-light">
-    <tr>
-        <th scope="col">Pokedex</th>
-        <th scope="col">Name</th>
-        <th scope="col">Type</th>
-        <th scope="col">Total</th>
-        <th scope="col">Hp</th>
-        <th scope="col">Atk</th>
-        <th scope="col">Def</th>
-        <th scope="col">SP Atk</th>
-        <th scope="col">SP Def</th>
-        <th scope="col">Speed</th>
-        <th scope="col">Gen</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% if pkmnlists %}
-    {% for pkmnlist in pkmnlists %}
-    <tr>
-        <td>{{pkmnlist.pokedex_number}}</td>
-        <td><a href="{% url 'pkmnpage' pkmnlist.id %}"
-               class="btn ">{{pkmnlist.name}}</a></td>
-        <td>{{pkmnlist.type_1}} / {{pkmnlist.type_2}}</td>
-        <td>{{pkmnlist.total_points}}</td>
-        <td>{{pkmnlist.hp}}</td>
-        <td>{{pkmnlist.attack}}</td>
-        <td>{{pkmnlist.defense}}</td>
-        <td>{{pkmnlist.sp_attack}}</td>
-        <td>{{pkmnlist.sp_defense}}</td>
-        <td>{{pkmnlist.speed}}</td>
-        <td>{{pkmnlist.generation}}</td>
 
-    </tr>
-    {% endfor %}
-    {% endif %}
-    </tbody>
-</table>
+<div class="container" style="text-align: center;">
+    <div> <h1>All Pokemons</h1> </div>
+    <div class="row" >
+        {% if pkmnlists %}
+        {% for pkmnlist in pkmnlists %}
+        <div class="col" style="border-style: ridge;">
+            <div>{{pkmnlist.pokedex_number}}</div>
+            <div>------------</div>
+            <div><a href="{% url 'pkmnpage' pkmnlist.id %}"
+                    class="btn ">{{pkmnlist.name}}</a></div>
+            <div>{{pkmnlist.type_1}} | {{pkmnlist.type_2}}</div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
 </div>
 </div>
 </div>

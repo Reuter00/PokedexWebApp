@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container" style="text-align: center;">
+    <div> <h1>Searched  Pokemons</h1> </div>
+    <div class="row" >
+        {% if pkmnlists %}
+        {% for pkmnlist in pkmnlists %}
+        <div class="col" style="border-style: ridge;">
+            <div>{{pkmnlist.pokedex_number}}</div>
+            <div>------------</div>
+            <div><a href="{% url 'pkmnpage' pkmnlist.id %}"
+                    class="btn ">{{pkmnlist.name}}</a></div>
+            <div>{{pkmnlist.type_1}} | {{pkmnlist.type_2}}</div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
