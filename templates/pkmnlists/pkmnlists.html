@@ -5,8 +5,8 @@
 {% block content %}
 
 <div class="container" style="text-align: center;">
-    <div> <h1>All Pokemons</h1> </div>
-    <div class="row" >
+    <div><h1> {% if pkmngeneration %} Generation {{pkmngeneration}} {% else %} All Pokemons {% endif %} </h1></div>
+    <div class="row">
         {% if pkmnlists %}
         {% for pkmnlist in pkmnlists %}
         <div class="col" style="border-style: ridge;">
