@@ -41,12 +41,12 @@ def search(request):
 
 
 def generations(request):
-    generationpage = pkmnlist.objects.order_by('pokedex_number')
+
     # URL Keywords past by POST
     if 'pkmngeneration' in request.POST:
         pkmngeneration = request.POST['pkmngeneration']
     if pkmngeneration:
-        generationpage = pkmnlist.objects.filter(generation=pkmngeneration)
+        generationpage = pkmnlist.objects.order_by('pokedex_number').filter(generation=pkmngeneration)
     context = {
         'pkmnlists': generationpage,
         'generation': generation,
