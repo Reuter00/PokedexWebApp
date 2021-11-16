@@ -14,6 +14,11 @@ img {
 .social a {
   margin-right: 0.4rem; }
 
+.pkmnimg {
+    width: 10px;
+    height: 10px;
+}
+
 #showcase {
   background: url(../img/showcase.jpg) no-repeat top center fixed/cover;
   position: relative;

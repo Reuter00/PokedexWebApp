@@ -4,11 +4,12 @@
 
 {% block content %}
 <div class="container" style="text-align: center;">
-    <div> <h1>Searched  Pokemons</h1> </div>
-    <div class="row" >
+    <div><h1>Searched Pokemons</h1></div>
+    <div class="row">
         {% if pkmnlists %}
         {% for pkmnlist in pkmnlists %}
         <div class="col" style="border-style: ridge;">
+            <div style="width: 100px; height: 100px;" ><img src="{% static '/img/pokemon_pic/' %}{{pkmnlist.pokedex_number}}.png"></div>
             <div>{{pkmnlist.pokedex_number}}</div>
             <div>------------</div>
             <div><a href="{% url 'pkmnpage' pkmnlist.id %}"
