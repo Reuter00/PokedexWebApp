@@ -8,3 +8,24 @@ generation = {
     '7': '7',
     '8': '8',
 }
+
+type = {
+    'Normal': 'Normal',
+    'Grass': 'Grass',
+    'Fire': 'Fire',
+    'Water': 'Water',
+    'Electric': 'Electric',
+    'Dark': 'Dark',
+    'Ground': 'Ground',
+    'Steel': 'Steel',
+    'Ice': 'Ice',
+    'Fairy': 'Fairy',
+    'Dragon': 'Dragon',
+    'Poison': 'Poison',
+    'Psychic': 'Psychic',
+    'Rock': 'Rock',
+    'Fighting': 'Fighting',
+    'Bug': 'Bug',
+    'Ghost': 'Ghost',
+    'Flying': 'Flying',
+}

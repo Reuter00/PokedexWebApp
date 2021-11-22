@@ -21,6 +21,7 @@
                         Generations
                     </a>
 
+                    <!-- Generation downbar -->
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                         {% for key,value in generation.items %}
@@ -28,7 +29,35 @@
                             <form class="d-flex" action="{% url 'generations'  %}">{% csrf_token %}
 
 
-                                <button class="dropdown-item" name="pkmngeneration" value="{{key}}" type="submit" formmethod="post">Generation {{ value }}</button>
+                                <button class="dropdown-item" name="pkmngeneration" value="{{key}}" type="submit"
+                                        formmethod="post">Generation {{ value }}
+                                </button>
+                            </form>
+                        </li>
+
+                        {% endfor %}
+
+                    </ul>
+
+                </li>
+                <!-- Type downbar -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowns" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Types
+                    </a>
+
+                    <!-- Type downbar -->
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        {% for key,value in type.items %}
+                        <li>
+                            <form class="d-flex" action="{% url 'types'  %}">{% csrf_token %}
+
+
+                                <button class="dropdown-item" name="pkmntype" value="{{key}}" type="submit"
+                                        formmethod="post"> {{ value }}
+                                </button>
                             </form>
                         </li>
 
