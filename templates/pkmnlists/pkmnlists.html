@@ -9,8 +9,8 @@
     <div class="row">
         {% if pkmnlists %}
         {% for pkmnlist in pkmnlists %}
-        <div class="col" style="border-style: ridge;">
-            <div><img src="{% static '/img/pokemon_pic/' %}{{pkmnlist.pokedex_number}}.png"></div>
+        <div class="col" style="border-style: ridge; width: 270px; height: 270px;">
+            <div><img src="{% static '/img/pokemon_pic/' %}{{pkmnlist.pokedex_number}}.png" ></div>
             <div>{{pkmnlist.pokedex_number}}</div>
             <div>------------</div>
             <div><a href="{% url 'pkmnpage' pkmnlist.id %}"
