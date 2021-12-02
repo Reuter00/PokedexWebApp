@@ -13,7 +13,7 @@
             <div><img src="{% static '/img/pokemon_pic/' %}{{pkmnlist.pokedex_number}}.png" ></div>
             <div>{{pkmnlist.pokedex_number}}</div>
             <div>------------</div>
-            <div><a href="{% url 'pkmnpage' pkmnlist.id %}"
+            <div><a href="{% url 'pkmnpage' pkmnlist.pokedex_number %}"
                     class="btn ">{{pkmnlist.name}}</a></div>
             <div>{{pkmnlist.type_1}} | {{pkmnlist.type_2}}</div>
         </div>

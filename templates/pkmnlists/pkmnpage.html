@@ -21,29 +21,31 @@
                         <th class="column5">SP Atk</th>
                         <th class="column4">SP Def</th>
                         <th class="column5">Speed</th>
-                        <th class="column6">Gen</th>
+
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td class="column1">{{pkmnpage.pokedex_number}}</td>
-                        <td class="column2">{{pkmnpage.name}}
+                        <td class="column1">{{id}}</td>
+                        <td class="column2">{{name}}
                         </td>
-                        <td class="column3">{{pkmnpage.type_1}} / {{pkmnpage.type_2}}</td>
-                        <td class="column4">{{pkmnpage.total_points}}</td>
-                        <td class="column5">{{pkmnpage.hp}}</td>
-                        <td class="column5">{{pkmnpage.attack}}</td>
-                        <td class="column5">{{pkmnpage.defense}}</td>
-                        <td class="column5">{{pkmnpage.sp_attack}}</td>
-                        <td class="column5">{{pkmnpage.sp_defense}}</td>
-                        <td class="column5">{{pkmnpage.speed}}</td>
-                        <td class="column6">{{pkmnpage.generation}}</td>
+                        <td class="column3">{{type1}} / {{type2}}</td>
+                        <td class="column4">{{totalstat}}</td>
+                        <td class="column5">{{hp}}</td>
+                        <td class="column5">{{attack}}</td>
+                        <td class="column5">{{defense}}</td>
+                        <td class="column5">{{special_attack}}</td>
+                        <td class="column5">{{special_defense}}</td>
+                        <td class="column5">{{speed}}</td>
+
 
                     </tr>
 
                     </tbody>
                 </table>
+
             </div>
+             The stats are fetched from https://pokeapi.co/api/v2/pokemon/
         </div>
     </div>
 </div>

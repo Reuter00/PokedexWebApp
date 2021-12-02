@@ -4,6 +4,7 @@ from pkmnlist.dictionarys import generation
 from pkmnlist.dictionarys import type
 from .models import pkmnlist
 from django.db.models import Q
+import requests
 
 
 def index(request):
@@ -18,13 +19,35 @@ def index(request):
     return render(request, 'pkmnlists/pkmnlists.html', context)
 
 
-def pkmnlists(request, pkmnlist_id):
-    pkmnpage = get_object_or_404(pkmnlist, pk=pkmnlist_id)
+def pkmnlists(request, pokedex_number):
+    # Getting data from external api
+    response = requests.get('https://pokeapi.co/api/v2/pokemon/' + str(pokedex_number))
+    pokemonapidata = response.json()
+    if len(pokemonapidata['types']) == 2:
+        type2 = pokemonapidata['types'][1]['type']['name'].capitalize()
+    else:
+        type2 = 'None'
+
     context = {
-        'pkmnpage': pkmnpage,
         'generation': generation,
-        'type': type
+        'type': type,
+        'id': pokemonapidata['id'],
+        'name': pokemonapidata['name'].capitalize(),
+        'hp': pokemonapidata['stats'][0]['base_stat'],
+        'attack': pokemonapidata['stats'][1]['base_stat'],
+        'defense': pokemonapidata['stats'][2]['base_stat'],
+        'special_attack': pokemonapidata['stats'][3]['base_stat'],
+        'special_defense': pokemonapidata['stats'][4]['base_stat'],
+        'speed': pokemonapidata['stats'][5]['base_stat'],
+        'type1': pokemonapidata['types'][0]['type']['name'].capitalize(),
+        'type2': type2,
+
+        'totalstat': pokemonapidata['stats'][0]['base_stat'] + pokemonapidata['stats'][1]['base_stat'] +
+                     pokemonapidata['stats'][2]['base_stat'] + pokemonapidata['stats'][3]['base_stat'] +
+                     pokemonapidata['stats'][4]['base_stat'] + pokemonapidata['stats'][5]['base_stat']
+
     }
+
     return render(request, 'pkmnlists/pkmnpage.html', context)
 
 
