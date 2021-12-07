@@ -66,6 +66,9 @@
                     </ul>
 
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://127.0.0.1:8000/docs/">API <span class="sr-only">(current)</span></a>
+                </li>
             </ul>
             <form class="d-flex" action="{% url 'search'  %}">{% csrf_token %}
                 <input class="form-control me-2" type="search" name="pkmnname" placeholder="Search" aria-label="Search">

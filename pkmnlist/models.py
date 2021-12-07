@@ -11,7 +11,6 @@ class pkmnlist(models.Model):
     status = models.CharField(max_length=200)
     species = models.CharField(max_length=200)
     type_number = models.IntegerField()
-    # type foreign key from type database
     type_1 = models.CharField(max_length=200, blank=True, null=True)
     type_2 = models.CharField(max_length=200, blank=True, null=True)
     height_m = models.DecimalField(max_digits=4, decimal_places=1, blank=True, null=True)
