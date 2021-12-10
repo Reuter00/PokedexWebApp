@@ -20,7 +20,7 @@ async def get_pokemons(db: _orm.Session = _fastapi.Depends(_services.get_db)):
     return await _services.get_all_pokemons(db=db)
 
 
-@app.get("/api/pokemon/{pokemon_id}", response_model=_schemas.Pokemon)
+@app.get("/api/pokemon/{pokedex_number}", response_model=_schemas.Pokemon)
 async def get_pokemon(pokemon_id: int, db: _orm.Session = _fastapi.Depends(_services.get_db)):
     pokemon = await _services.get_pokemon(db=db, pokemon_id=pokemon_id)
     if pokemon is None:
@@ -29,7 +29,7 @@ async def get_pokemon(pokemon_id: int, db: _orm.Session = _fastapi.Depends(_serv
     return pokemon
 
 
-@app.delete("/api/pokemon/{pokemon_id}/")
+@app.delete("/api/pokemon/{pokedex_number}/")
 async def delete_pokemon(pokemon_id: int, db: _orm.Session = _fastapi.Depends(_services.get_db)):
     pokemon = await _services.get_pokemon(db=db, pokemon_id=pokemon_id)
     if pokemon is None:
@@ -38,13 +38,14 @@ async def delete_pokemon(pokemon_id: int, db: _orm.Session = _fastapi.Depends(_s
     return "Successfuly deleted " + pokemon.name
 
 
-@app.put("/api/pokemon/{pokemon_id}/", response_model=_schemas.Pokemon)
+#Edit pokemon
+@app.put("/api/pokemon/{pokedex_number}/", response_model=_schemas.Pokemon)
 async def update_pokemon(
         pokemon_id: int,
         pokemon_data: _schemas.CreatePokemon,
         db: _orm.Session = _fastapi.Depends(_services.get_db),
 ):
-    pokemon = await _services.get_contact(db=db, pokemon_id=pokemon_id)
+    pokemon = await _services.get_pokemon(db=db, pokemon_id=pokemon_id)
     if pokemon is None:
         raise _fastapi.HTTPException(status_code=404, detail="Pokemon does not exist")
 
